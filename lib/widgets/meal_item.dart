@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:meals/models/meal.dart';
+import 'package:meals/screen/meal_detail_screen.dart';
 
 class MealItem extends StatelessWidget {
+  final String id;
   final String title;
   final String imageUrl;
   final int duration;
@@ -10,6 +12,7 @@ class MealItem extends StatelessWidget {
 
   MealItem({
     Key? key,
+    required this.id,
     required this.title,
     required this.imageUrl,
     required this.duration,
@@ -57,13 +60,24 @@ class MealItem extends StatelessWidget {
     return result;
   }
 
+  //음식을 선택하면 디테일화면을 호출
+  void selectMeal(BuildContext context) {
+    Navigator.of(context).pushNamed(
+      MealDetailScreen.routeName,
+      arguments: id,
+    );
 
-  void selectMeal() {}
+    /*
+    해당위젯의 routeName을 지정할때 Static으로 선언하고, 
+    Main.dart에 등록하고,  
+    호출할 곳에서 RouteName을 사용하여 호출한다.
+    */
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: selectMeal,
+      onTap: () => selectMeal(context),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
@@ -113,7 +127,8 @@ class MealItem extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(20),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround, //가로 위치를 균등하게 맞춤
+                mainAxisAlignment:
+                    MainAxisAlignment.spaceAround, //가로 위치를 균등하게 맞춤
                 children: [
                   Row(
                     children: [
