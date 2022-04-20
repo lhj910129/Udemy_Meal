@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/meal_item.dart';
 import '../dummy_data.dart';
 
 class CategoryMealsScreen extends StatelessWidget {
@@ -18,10 +19,10 @@ class CategoryMealsScreen extends StatelessWidget {
 
     final categoryTitle = routeArgs['title'];
     final categoryId = routeArgs['id'];
-    final categoryMeals = DUMMY_MEALS.where((meal){
+    final categoryMeals = DUMMY_MEALS.where((meal) {
       return meal.categories.contains(categoryId);
     }).toList(); //카테고리아이디를 가진 리스트만 가져온다
-    
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -31,7 +32,13 @@ class CategoryMealsScreen extends StatelessWidget {
       body: Container(
         child: ListView.builder(
           itemBuilder: (ctx, index) {
-            return Text(categoryMeals[index].title);
+            return MealItem(
+              title: categoryMeals[index].title,
+              imageUrl: categoryMeals[index].imageUrl,
+              duration: categoryMeals[index].duration,
+              complexity: categoryMeals[index].complexity,
+              affordability: categoryMeals[index].affordability,
+            );
           },
           itemCount: categoryMeals.length,
         ),
