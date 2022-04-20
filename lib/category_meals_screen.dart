@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import './dummy_data.dart';
 
 class CategoryMealsScreen extends StatelessWidget {
+  static const routeName = '/category-meals';
   // final String categoryId;
   // final String categoryTitle;
 
@@ -16,6 +18,9 @@ class CategoryMealsScreen extends StatelessWidget {
 
     final categoryTitle = routeArgs['title'];
     final categoryId = routeArgs['id'];
+    final categoryMeals = DUMMY_MEALS.where((meal){
+      return meal.categories.contains(categoryId);
+    }).toList(); //카테고리아이디를 가진 리스트만 가져온다
     
     return Scaffold(
       appBar: AppBar(
@@ -24,8 +29,11 @@ class CategoryMealsScreen extends StatelessWidget {
         ),
       ),
       body: Container(
-        child: Text(
-          '이 카테고리의 레시피들이 표시되는 화면입니다.',
+        child: ListView.builder(
+          itemBuilder: (ctx, index) {
+            return Text(categoryMeals[index].title);
+          },
+          itemCount: categoryMeals.length,
         ),
       ),
     );

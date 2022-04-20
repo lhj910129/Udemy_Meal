@@ -30,8 +30,14 @@ class MyApp extends StatelessWidget {
               ),
             ),
       ),
-      home: CategoriesScreen(),
-      routes: {'/category-meals': (ctx) => CategoryMealsScreen()},
+      //home: CategoriesScreen(),
+      initialRoute: '/', //디폴트값 '/'
+      routes: {
+        '/':(ctx) => CategoriesScreen(), //home
+        CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
+
+        
+      },
     );
   }
 }

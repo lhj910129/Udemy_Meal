@@ -21,7 +21,7 @@ class CategoryItem extends StatelessWidget {
     // ); //새로운 페이지로 푸시하겠다는 의미
 
     Navigator.of(ctx).pushNamed(
-      '/category-meals',
+      CategoryMealsScreen.routeName,
       arguments: {
         'id': id,
         'title': title,
