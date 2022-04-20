@@ -6,27 +6,27 @@ import './models/category.dart';
 const DUMMY_CATEGORIES = [
   Category(
     id: 'c1',
-    title: 'Italian',
+    title: '양식',
     color: Colors.purple,
   ),
   Category(
     id: 'c2',
-    title: 'Quick & Easy',
+    title: '간편식',
     color: Colors.red,
   ),
   Category(
     id: 'c3',
-    title: 'Hamburgers',
+    title: '버거',
     color: Colors.orange,
   ),
   Category(
     id: 'c4',
-    title: 'German',
+    title: '독일식',
     color: Colors.amber,
   ),
   Category(
     id: 'c5',
-    title: 'Light & Lovely',
+    title: '가벼운',
     color: Colors.blue,
   ),
   Category(
@@ -36,22 +36,22 @@ const DUMMY_CATEGORIES = [
   ),
   Category(
     id: 'c7',
-    title: 'Breakfast',
+    title: '아침식사',
     color: Colors.lightBlue,
   ),
   Category(
     id: 'c8',
-    title: 'Asian',
+    title: '아시안',
     color: Colors.lightGreen,
   ),
   Category(
     id: 'c9',
-    title: 'French',
+    title: '프렌치',
     color: Colors.pink,
   ),
   Category(
     id: 'c10',
-    title: 'Summer',
+    title: '여름',
     color: Colors.teal,
   ),
 ];
