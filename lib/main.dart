@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals/screen/meal_detail_screen.dart';
+import 'package:meals/screen/tab_screen.dart';
 import 'screen/category_meals_screen.dart';
 import 'screen/categories_screen.dart';
 
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
       //home: CategoriesScreen(),
       initialRoute: '/', //디폴트값 '/'
       routes: {
-        '/': (ctx) => CategoriesScreen(), //home
+        '/': (ctx) => TabsScreen(), //home
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
       },
