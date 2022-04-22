@@ -34,10 +34,18 @@ class MyApp extends StatelessWidget {
       //home: CategoriesScreen(),
       initialRoute: '/', //디폴트값 '/'
       routes: {
-        '/':(ctx) => CategoriesScreen(), //home
+        '/': (ctx) => CategoriesScreen(), //home
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
-        
+      },
+      onGenerateRoute: (settings) {
+        //그냥 route와 무슨 차이가 있는지... 앱의 규모가 커지면 적절히 사용한다고 함
+      },
+      onUnknownRoute: (settings) {
+        //아무 route를 지정하지 않았을때... unknown으로 지정됨. 보통 시작페이지나 에러페이지에 주로 사용함
+        return MaterialPageRoute(
+          builder: (ctx) => CategoriesScreen(),
+        );
       },
     );
   }

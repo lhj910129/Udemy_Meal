@@ -42,7 +42,7 @@ class CategoryItem extends StatelessWidget {
           style: Theme.of(context).textTheme.titleMedium,
         ),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
+          gradient: LinearGradient( 
             colors: [
               color.withOpacity(0.7),
               color,
