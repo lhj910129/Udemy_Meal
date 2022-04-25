@@ -45,20 +45,13 @@ class MainDrawer extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          buildListTile(
-            'Meals',
-            Icons.restaurant,
-            (){
-              Navigator.of(context).pushNamed('/');
-            }
-          ),
-          buildListTile(
-            'Filters',
-            Icons.settings,
-            (){
-              Navigator.of(context).pushNamed(FiltersScreen.routeName);
-            }
-          ),
+          buildListTile('Meals', Icons.restaurant, () {
+            Navigator.of(context).pushReplacementNamed(
+                '/'); //pushReplacementNamed : 스택의 기존페이지를 새 페이지로 교체한다!
+          }),
+          buildListTile('Filters', Icons.settings, () {
+            Navigator.of(context).pushReplacementNamed(FiltersScreen.routeName);
+          }),
         ],
       ),
     );
