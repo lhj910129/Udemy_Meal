@@ -94,6 +94,14 @@ class MealDetailScreen extends StatelessWidget {
             ),
           ],
         ),
+        
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.delete,),
+        onPressed: (){
+          Navigator.of(context).pop(mealId);
+          //mealItem에 mealId를 전달하는데 이 화면을 띄울때(Future), 띄우고 나서 then에서 값을 전달
+        },
       ),
     );
   }

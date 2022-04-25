@@ -9,16 +9,18 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
+  final Function removeItem;
 
-  MealItem({
-    Key? key,
-    required this.id,
-    required this.title,
-    required this.imageUrl,
-    required this.duration,
-    required this.complexity,
-    required this.affordability,
-  }) : super(key: key);
+  MealItem(
+      {Key? key,
+      required this.id,
+      required this.title,
+      required this.imageUrl,
+      required this.duration,
+      required this.complexity,
+      required this.affordability,
+      required this.removeItem})
+      : super(key: key);
 
   //난이도를 텍스트로 가져오기 위한 겟
   String get complexityText {
@@ -62,10 +64,22 @@ class MealItem extends StatelessWidget {
 
   //음식을 선택하면 디테일화면을 호출
   void selectMeal(BuildContext context) {
-    Navigator.of(context).pushNamed(
+    Navigator.of(context)
+        .pushNamed(
       MealDetailScreen.routeName,
       arguments: id,
-    );
+    )
+        .then((result) {
+      /*
+      puchNamed는 Future타입
+      디테일 화면을 호출이 끝난 뒤에 then이 실행된다.
+      뒤로가기버튼으로 이화면으로 왔을때는 전달한 값이 없다!
+      */
+      if (result != null) {
+        removeItem(result);
+      }
+      print(result);
+    });
 
     /*
     해당위젯의 routeName을 지정할때 Static으로 선언하고, 
